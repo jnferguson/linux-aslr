@@ -1,0 +1,624 @@
+                                                                                                                                                                                                                                                               
+Delivered-To: zero@asac.co
+Received: by 10.140.102.210 with SMTP id w76csp593548qge;
+        Fri, 1 May 2015 19:21:25 -0700 (PDT)
+X-Received: by 10.140.135.18 with SMTP id 18mr15692418qhh.71.1430533285174;
+        Fri, 01 May 2015 19:21:25 -0700 (PDT)
+Return-Path: <spender@grsecurity.net>
+Received: from grsecurity.net (grsecurity.net. [50.251.85.49])
+        by mx.google.com with ESMTP id d49si6549320qge.52.2015.05.01.19.21.24
+        for <zero@asac.co>;
+        Fri, 01 May 2015 19:21:25 -0700 (PDT)
+Received-SPF: pass (google.com: domain of spender@grsecurity.net designates 50.251.85.49 as permitted sender) client-ip=50.251.85.49;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of spender@grsecurity.net designates 50.251.85.49 as permitted sender) smtp.mail=spender@grsecurity.net
+Received: by grsecurity.net (Postfix, from userid 1000)
+	id D55F5AEF81; Fri,  1 May 2015 22:21:23 -0400 (EDT)
+Date: Fri, 1 May 2015 22:21:23 -0400
+From: Brad Spengler <spender@grsecurity.net>
+To: zero@asac.co
+Subject: ASLR
+Message-ID: <20150502022123.GA1997@grsecurity.net>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="X1bOJ3K7DJ5YkBrT"
+Content-Disposition: inline
+User-Agent: Mutt/1.5.21 (2010-09-15)
+
+
+--X1bOJ3K7DJ5YkBrT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+You should probably just read https://pax.grsecurity.net/docs/aslr.txt, or
+really anything about the differing ASLR implementations, as it would answer
+all these questions of yours.  Or don't and continue to freak out on public
+mailing lists :)
+
+-Brad
+
+--X1bOJ3K7DJ5YkBrT
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQIcBAEBCgAGBQJVRDScAAoJEETRwPglJf5J7xoP/3rF00P5VIlCm1wMxApz8+gO
+tdcF5RNVmQ/+a0JQp9E6Si1b3cfmPkHOqKD0+X/RfTTZMZKUR34PzTyHckBgrcV3
+2gr35x2MgQ+T2hvlsI/B5Zp3Tm5VbzN/it4Gqu298UxSRvFhNH5t1ndIBj8aRReG
+5l7iLjBQtB8SE1qKu51lHtld5waW+aBKxSfjyk6PvU603anKge+LiEwOiBvy8aRP
+Lw7a4MV7yKzQdTvV9ARizkZScRJk0bbTyQ4ckjdjKiEf2y5n8YqUGag8FHsHsEN/
+YbAD67c8KYBQ/hXA8YJ0z+BZ01Xj9IZRGECk8rORti/NnNINKKgMpTMBCAOPAwyr
+sB4UD/n1QWB5q4xGOkbJDFdvWb/3AFjChE8CGcwdCi45rb2eUsAckY6Lv5RHp5sH
+ylVsEjJNs2OOLjgAclZcw4liLNPPwRSFD9U/kvBaSHZgE9mycRj5WPqSy4nJt9TG
+agATrhCdtFrVm7Q/5YEmawzeHlT+UC1KaacGdDCnhls1PccasvChVw4O18E9fZh8
+E7CnLYiYfGdjVDyusbs3MeLMYbPt7lpJqd/v3tVka9GUQE3xjbvF3Egg24+vMoNl
+QvzlyAVzb6ykXTO7ZtJsMbJ8c/O1EvBMCF0UL8DBR0OhCI9CJldjo4b0Pthisn4i
+nN/112Bkjw82f7vvZrWS
+=Nq87
+-----END PGP SIGNATURE-----
+
+--X1bOJ3K7DJ5YkBrT--
+
+                                                                                                                                                                                                                                                               
+MIME-Version: 1.0
+Received: by 10.140.69.178 with HTTP; Sat, 2 May 2015 03:59:03 -0700 (PDT)
+X-Originating-IP: [172.56.2.116]
+Received: by 10.140.69.178 with HTTP; Sat, 2 May 2015 03:59:03 -0700 (PDT)
+In-Reply-To: <20150502022123.GA1997@grsecurity.net>
+References: <20150502022123.GA1997@grsecurity.net>
+Date: Sat, 2 May 2015 06:59:03 -0400
+Delivered-To: zero@asac.co
+Message-ID: <CABN49-bNqqUteHkAL_KAfDtNEvhwnBG6-cCM4TaU_jannZk8TA@mail.gmail.com>
+Subject: Re: ASLR
+From: PIN <zero@asac.co>
+To: Brad Spengler <spender@grsecurity.net>
+Content-Type: multipart/alternative; boundary=001a11355026893f2e051517377b
+
+--001a11355026893f2e051517377b
+Content-Type: text/plain; charset=UTF-8
+
+Thanks Brad. That paper is interesting!
+
+Does pax randomize one base address so that almost all other addresses can
+locate almost all others? This is akin to treating the address returned by
+mmap  (which is 'random') as the instruction pointer in PIC code; you're
+not supposed to be able to do that.
+ On May 1, 2015 10:21 PM, "Brad Spengler" <spender@grsecurity.net> wrote:
+
+> You should probably just read https://pax.grsecurity.net/docs/aslr.txt, or
+> really anything about the differing ASLR implementations, as it would
+> answer
+> all these questions of yours.  Or don't and continue to freak out on public
+> mailing lists :)
+>
+> -Brad
+>
+
+--001a11355026893f2e051517377b
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p dir=3D"ltr">Thanks Brad. That paper is interesting!</p>
+<p dir=3D"ltr">Does pax randomize one base address so that almost all other=
+ addresses can locate almost all others? This is akin to treating the addre=
+ss returned by mmap=C2=A0 (which is &#39;random&#39;) as the instruction po=
+inter in PIC code; you&#39;re not supposed to be able to do that.<br>
+ </p>
+<div class=3D"gmail_quote">On May 1, 2015 10:21 PM, &quot;Brad Spengler&quo=
+t; &lt;<a href=3D"mailto:spender@grsecurity.net">spender@grsecurity.net</a>=
+&gt; wrote:<br type=3D"attribution"><blockquote class=3D"gmail_quote" style=
+=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">You shou=
+ld probably just read <a href=3D"https://pax.grsecurity.net/docs/aslr.txt" =
+target=3D"_blank">https://pax.grsecurity.net/docs/aslr.txt</a>, or<br>
+really anything about the differing ASLR implementations, as it would answe=
+r<br>
+all these questions of yours.=C2=A0 Or don&#39;t and continue to freak out =
+on public<br>
+mailing lists :)<br>
+<br>
+-Brad<br>
+</blockquote></div>
+
+--001a11355026893f2e051517377b--
+
+                                                                                                                                                                                                                                                               
+Delivered-To: zero@asac.co
+Received: by 10.140.102.210 with SMTP id w76csp773268qge;
+        Sat, 2 May 2015 05:31:05 -0700 (PDT)
+X-Received: by 10.55.15.163 with SMTP id 35mr28031532qkp.96.1430569865457;
+        Sat, 02 May 2015 05:31:05 -0700 (PDT)
+Return-Path: <spender@grsecurity.net>
+Received: from grsecurity.net (grsecurity.net. [50.251.85.49])
+        by mx.google.com with ESMTP id 74si29302246qhq.106.2015.05.02.05.31.05
+        for <zero@asac.co>;
+        Sat, 02 May 2015 05:31:05 -0700 (PDT)
+Received-SPF: pass (google.com: domain of spender@grsecurity.net designates 50.251.85.49 as permitted sender) client-ip=50.251.85.49;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of spender@grsecurity.net designates 50.251.85.49 as permitted sender) smtp.mail=spender@grsecurity.net
+Received: by grsecurity.net (Postfix, from userid 1000)
+	id 82E23AEF81; Sat,  2 May 2015 08:31:04 -0400 (EDT)
+Date: Sat, 2 May 2015 08:31:04 -0400
+From: Brad Spengler <spender@grsecurity.net>
+To: PIN <zero@asac.co>
+Subject: Re: ASLR
+Message-ID: <20150502123104.GA16968@grsecurity.net>
+References: <20150502022123.GA1997@grsecurity.net>
+ <CABN49-bNqqUteHkAL_KAfDtNEvhwnBG6-cCM4TaU_jannZk8TA@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TB36FDmn/VVEgNH/"
+Content-Disposition: inline
+In-Reply-To: <CABN49-bNqqUteHkAL_KAfDtNEvhwnBG6-cCM4TaU_jannZk8TA@mail.gmail.com>
+User-Agent: Mutt/1.5.21 (2010-09-15)
+
+
+--TB36FDmn/VVEgNH/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+It's all there in the paper:
+
+For our purposes all these possible mappings can be split into three groups:
+     - [1], [2] and the brk() managed heap following them,
+     - [3]-[7] and all the other mappings created by mmap(),
+     - [8], the stack.
+
+   The mappings in the first and last groups are established during execve()
+   and do not move (only their size can change) whereas the mappings in the
+   second group may come and go during the lifetime of the task. Since the
+   base addresses used to map each group are not related to each other, we =
+can
+   apply different amount of randomization to each. This also has the benef=
+it
+   that whenever a given attack technique needs advance knowledge of addres=
+ses
+   from more than group, the attacker will likely have to guess or brute fo=
+rce
+   all entropies at once which further reduces the chances of success.
+
+-Brad
+
+
+On Sat, May 02, 2015 at 06:59:03AM -0400, PIN wrote:
+> Thanks Brad. That paper is interesting!
+>=20
+> Does pax randomize one base address so that almost all other addresses can
+> locate almost all others? This is akin to treating the address returned by
+> mmap  (which is 'random') as the instruction pointer in PIC code; you're
+> not supposed to be able to do that.
+>  On May 1, 2015 10:21 PM, "Brad Spengler" <spender@grsecurity.net> wrote:
+>=20
+> > You should probably just read https://pax.grsecurity.net/docs/aslr.txt,=
+ or
+> > really anything about the differing ASLR implementations, as it would
+> > answer
+> > all these questions of yours.  Or don't and continue to freak out on pu=
+blic
+> > mailing lists :)
+> >
+> > -Brad
+> >
+
+--TB36FDmn/VVEgNH/
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQIcBAEBCgAGBQJVRMOBAAoJEETRwPglJf5J8O8QAKPy54PBXSMCHTBU86C/tmiS
+Hn+AA19AwCNWCAuGwIswjqYyujyR5Dor6xUX6W5ih1gzfv+9lQxPjaZs03thoJ/k
+W55hTIiyAdrxPbc3PhH1pPWlsj8tTSYQ3wkZ6lYKbmZ5DO6wq7OJ2YS/B4o04RkN
+zqHr34BW1mnkh7nXXGIqai3sJFok9Har4ngC/Zw5oj7SzFMZBsI1Zv4eiQLSAV9X
+5QVijyLB0qUmOn+lLSaVItWRrZXOXBS+VxHL/0j2Z+B07FuxMvXhmlVkmeU+R53k
+mFKexU8HB1N1lv4EEMuVDKIYu4MTHUnT3pCHC+ilO6NaPxGaffqD46fft2DOxtUQ
+mQ19YJah+NJOo3JcWoQxCVXD4ySkrqs4VSw9c6VW19MJItyUPaXmuGSP8utqNDP5
+yDUYM4sVYGOlCe949R6dZ8w8WSVjuLMqXZRhiMFA+oqdy4RQ3lNXK4im1drwga5S
+SSlZpHr4GBdQJ4ei/sY6fPqQdu0H4RQnp/gYI21wuZGkkfwqwD20DLv8v835K7P/
+IQy64kSEIW2y0O7Eb72I4pEsZcUWPpEVaJSfJHI8CAXHEn9stzoHOMk1Bk9vkbND
+dkewn7uG75Mt253ULApezmUOCY2B9/0hZyFIwxtOb9kj38gmYxpXFsGzAZPo6KB8
+oZErmMNabxHtSaOCPIwu
+=cZIF
+-----END PGP SIGNATURE-----
+
+--TB36FDmn/VVEgNH/--
+
+                                                                                                                                                                                                                                                               
+MIME-Version: 1.0
+Received: by 10.140.69.178 with HTTP; Sat, 2 May 2015 05:54:21 -0700 (PDT)
+X-Originating-IP: [172.56.2.116]
+Received: by 10.140.69.178 with HTTP; Sat, 2 May 2015 05:54:21 -0700 (PDT)
+In-Reply-To: <20150502123104.GA16968@grsecurity.net>
+References: <20150502022123.GA1997@grsecurity.net>
+	<CABN49-bNqqUteHkAL_KAfDtNEvhwnBG6-cCM4TaU_jannZk8TA@mail.gmail.com>
+	<20150502123104.GA16968@grsecurity.net>
+Date: Sat, 2 May 2015 08:54:21 -0400
+Delivered-To: zero@asac.co
+Message-ID: <CABN49-awXbL1bkqpZpBy-rtpYEj+1PEnVwnohePvs75F2gYu=g@mail.gmail.com>
+Subject: Re: ASLR
+From: PIN <zero@asac.co>
+To: Brad Spengler <spender@grsecurity.net>
+Content-Type: multipart/alternative; boundary=001a11339b78e4217c051518d3ec
+
+--001a11339b78e4217c051518d3ec
+Content-Type: text/plain; charset=UTF-8
+
+> Since the base addresses used to map > each group are not related to each
+> other, we can apply different amount
+> of randomization to each.
+
+Yes and what I'm saying here is that the position on group 2 is not what it
+appears to be. That if you know where your mapping comes out in terms of
+sequence then you can pre-calculate offsets, or at least can do so in the
+first few mappings-- larger volumes might accidentally reintroduce random.
+
+I'm assuming your excerpt is from the aslr.txt, which I haven't read in
+years; I haven't looked at how and what grsec is doing differently here; if
+that condition on group 2 is true for you, then you side stepped an issue.
+
+Look at the text files I included in the tar ball, there is 1000 runs of
+vsftpd there with the contents of /proc/pid/maps in it. The space between
+any two modules is constant, if you know any one base address you can
+calculate all of the others. /that/ is not supposed to happen that way.
+
+For large anonymous mmaps, the first one will immediately preceed the first
+loaded module. For smaller anonymous mmaps, it will immediately follow the
+first section of ld.so.
+
+Cross-reference the openbsd allocator and look at how they reintroduce
+random for what should probably be happening in addition to randomized load
+order, and probably discern some way for randomizing the offset into the
+mapping for its contents that are likely not page aligned.
+
+Does that make sense? I know I'm long winded and talk in circles sometimes.
+
+--001a11339b78e4217c051518d3ec
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p dir=3D"ltr">&gt; Since the base addresses used to map &gt; each group ar=
+e not related to each <br>
+&gt; other, we can apply different amount <br>
+&gt; of randomization to each.</p>
+<p dir=3D"ltr">Yes and what I&#39;m saying here is that the position on gro=
+up 2 is not what it appears to be. That if you know where your mapping come=
+s out in terms of sequence then you can pre-calculate offsets, or at least =
+can do so in the first few mappings-- larger volumes might accidentally rei=
+ntroduce random.</p>
+<p dir=3D"ltr">I&#39;m assuming your excerpt is from the aslr.txt, which I =
+haven&#39;t read in years; I haven&#39;t looked at how and what grsec is do=
+ing differently here; if that condition on group 2 is true for you, then yo=
+u side stepped an issue. </p>
+<p dir=3D"ltr">Look at the text files I included in the tar ball, there is =
+1000 runs of vsftpd there with the contents of /proc/pid/maps in it. The sp=
+ace between any two modules is constant, if you know any one base address y=
+ou can calculate all of the others. /that/ is not supposed to happen that w=
+ay.</p>
+<p dir=3D"ltr">For large anonymous mmaps, the first one will immediately pr=
+eceed the first loaded module. For smaller anonymous mmaps, it will immedia=
+tely follow the first section of ld.so.</p>
+<p dir=3D"ltr">Cross-reference the openbsd allocator and look at how they r=
+eintroduce random for what should probably be happening in addition to rand=
+omized load order, and probably discern some way for randomizing the offset=
+ into the mapping for its contents that are likely not page aligned.</p>
+<p dir=3D"ltr">Does that make sense? I know I&#39;m long winded and talk in=
+ circles sometimes.</p>
+<p dir=3D"ltr"> <br>
+</p>
+
+--001a11339b78e4217c051518d3ec--
+
+                                                                                                                                                                                                                                                               
+Delivered-To: zero@asac.co
+Received: by 10.140.102.210 with SMTP id w76csp784467qge;
+        Sat, 2 May 2015 06:01:51 -0700 (PDT)
+X-Received: by 10.140.134.145 with SMTP id 139mr18090702qhg.6.1430571711259;
+        Sat, 02 May 2015 06:01:51 -0700 (PDT)
+Return-Path: <spender@grsecurity.net>
+Received: from grsecurity.net (grsecurity.net. [50.251.85.49])
+        by mx.google.com with ESMTP id r72si29358241qha.121.2015.05.02.06.01.50
+        for <zero@asac.co>;
+        Sat, 02 May 2015 06:01:50 -0700 (PDT)
+Received-SPF: pass (google.com: domain of spender@grsecurity.net designates 50.251.85.49 as permitted sender) client-ip=50.251.85.49;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of spender@grsecurity.net designates 50.251.85.49 as permitted sender) smtp.mail=spender@grsecurity.net
+Received: by grsecurity.net (Postfix, from userid 1000)
+	id 9A2A7AEF81; Sat,  2 May 2015 09:01:49 -0400 (EDT)
+Date: Sat, 2 May 2015 09:01:49 -0400
+From: Brad Spengler <spender@grsecurity.net>
+To: PIN <zero@asac.co>
+Subject: Re: ASLR
+Message-ID: <20150502130149.GA17876@grsecurity.net>
+References: <20150502022123.GA1997@grsecurity.net>
+ <CABN49-bNqqUteHkAL_KAfDtNEvhwnBG6-cCM4TaU_jannZk8TA@mail.gmail.com>
+ <20150502123104.GA16968@grsecurity.net>
+ <CABN49-awXbL1bkqpZpBy-rtpYEj+1PEnVwnohePvs75F2gYu=g@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ew6BAiZeqk4r7MaW"
+Content-Disposition: inline
+In-Reply-To: <CABN49-awXbL1bkqpZpBy-rtpYEj+1PEnVwnohePvs75F2gYu=g@mail.gmail.com>
+User-Agent: Mutt/1.5.21 (2010-09-15)
+
+
+--ew6BAiZeqk4r7MaW
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+You seem confused, it's stated very plainly in the paper that it is *base*
+addresses that are randomized.  Each individual allocation is not randomize=
+d,
+so yes, one mmap relative to another will very likely be at fixed offsets.
+PaX has never cared about that, because in general if you have a leak of
+libc, you don't need any other library.  There will not be a fixed offset
+between mmaps and the brk-managed heap, or between mmaps and the PIE execut=
+able,
+or between mmaps and the stack.  It's all there :p
+
+-Brad
+
+On Sat, May 02, 2015 at 08:54:21AM -0400, PIN wrote:
+> > Since the base addresses used to map > each group are not related to ea=
+ch
+> > other, we can apply different amount
+> > of randomization to each.
+>=20
+> Yes and what I'm saying here is that the position on group 2 is not what =
+it
+> appears to be. That if you know where your mapping comes out in terms of
+> sequence then you can pre-calculate offsets, or at least can do so in the
+> first few mappings-- larger volumes might accidentally reintroduce random.
+>=20
+> I'm assuming your excerpt is from the aslr.txt, which I haven't read in
+> years; I haven't looked at how and what grsec is doing differently here; =
+if
+> that condition on group 2 is true for you, then you side stepped an issue.
+>=20
+> Look at the text files I included in the tar ball, there is 1000 runs of
+> vsftpd there with the contents of /proc/pid/maps in it. The space between
+> any two modules is constant, if you know any one base address you can
+> calculate all of the others. /that/ is not supposed to happen that way.
+>=20
+> For large anonymous mmaps, the first one will immediately preceed the fir=
+st
+> loaded module. For smaller anonymous mmaps, it will immediately follow the
+> first section of ld.so.
+>=20
+> Cross-reference the openbsd allocator and look at how they reintroduce
+> random for what should probably be happening in addition to randomized lo=
+ad
+> order, and probably discern some way for randomizing the offset into the
+> mapping for its contents that are likely not page aligned.
+>=20
+> Does that make sense? I know I'm long winded and talk in circles sometime=
+s.
+
+--ew6BAiZeqk4r7MaW
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQIcBAEBCgAGBQJVRMq2AAoJEETRwPglJf5JWk0QAI+LCcHDc0Mp1LrLdDSP3+IG
+wNmwoZwIVqkMLdx4ePAfn336sIw0la22b79t/oOzDvfMwEbnOqcQtzFHBg4aMLvV
+Ozs/aB1Exymz7TRbtPTv/hx8bQdW+ZFyI8JiIkjet3Lyla51DNMzhNdEHLJ3cfK1
+t3zQo9TlAnmiMHbfUwlgHabRThwYF7hYfQ3ptLPtPXz/y8FJca5Q0wt06qAYrQka
+Cc/rJEL5fmAxoJzRAg7r2FG78GBF64f2EZqlXklYJs6ljsdkbk6NLnbC93zx6d1Z
+nOPV8u6MolVRpbFpU1gar0Zn+AmZTP5xsvOP931pICi/NPcA/ZVxEag+9mXeR0gF
+om7HLApsbM+wM90hufPizqHOyYHT2rEbGDnstSnP2QFOweqx7G+DvGtVSwfJ6FPQ
+UQXypjcIQlBYEQLMQjKZeHEWBLfwkUJ+lZwamx/BmX2Ql6Zo3pzTrBVBAwDECRKY
+jnPXijNHwpg9+CMMWsxQlgrcgTnQw3hOb07ySi3ueX6iHx1BeXE3AeobsGU/sq37
+nWMzKIvueMyRBsabmdyRq4WGRZiWsv7u/71qf4euTEoPoGwmLHJxOCtW8W2JFKHH
+kcJukqnU8O/jrTR/x13qGSKnjrflO106F/llcDTy3f1jGvx3H82xO8gzTYgWdWw1
+l7yaQ0xC7fTSjNsnlCgv
+=1Od8
+-----END PGP SIGNATURE-----
+
+--ew6BAiZeqk4r7MaW--
+
+                                                                                                                                                                                                                                                               
+MIME-Version: 1.0
+Received: by 10.140.69.178 with HTTP; Sat, 2 May 2015 06:21:45 -0700 (PDT)
+X-Originating-IP: [172.56.2.116]
+Received: by 10.140.69.178 with HTTP; Sat, 2 May 2015 06:21:45 -0700 (PDT)
+In-Reply-To: <20150502130149.GA17876@grsecurity.net>
+References: <20150502022123.GA1997@grsecurity.net>
+	<CABN49-bNqqUteHkAL_KAfDtNEvhwnBG6-cCM4TaU_jannZk8TA@mail.gmail.com>
+	<20150502123104.GA16968@grsecurity.net>
+	<CABN49-awXbL1bkqpZpBy-rtpYEj+1PEnVwnohePvs75F2gYu=g@mail.gmail.com>
+	<20150502130149.GA17876@grsecurity.net>
+Date: Sat, 2 May 2015 09:21:45 -0400
+Delivered-To: zero@asac.co
+Message-ID: <CABN49-bqSJ=3=itFVedsr_yHT-rQRoF=NLoq=SRtLtUTP6RcNw@mail.gmail.com>
+Subject: Re: ASLR
+From: PIN <zero@asac.co>
+To: Brad Spengler <spender@grsecurity.net>
+Content-Type: multipart/alternative; boundary=001a11c1646ae0f944051519359b
+
+--001a11c1646ae0f944051519359b
+Content-Type: text/plain; charset=UTF-8
+
+Ah I see what you're saying and that matches what I'm seeing. I'm not
+expecting individual mallocs to return randomized pointers, I'm expecting
+two successive mmaps to return pointers that are random to one another and
+relative to everything else in the address space.
+
+--001a11c1646ae0f944051519359b
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p dir=3D"ltr"></p>
+<p dir=3D"ltr">Ah I see what you&#39;re saying and that matches what I&#39;=
+m seeing. I&#39;m not expecting individual mallocs to return randomized poi=
+nters, I&#39;m expecting two successive mmaps to return pointers that are r=
+andom to one another and relative to everything else in the address space. =
+</p>
+
+--001a11c1646ae0f944051519359b--
+
+                                                                                                                                                                                                                                                               
+Delivered-To: zero@asac.co
+Received: by 10.140.102.210 with SMTP id w76csp813347qge;
+        Sat, 2 May 2015 07:14:56 -0700 (PDT)
+X-Received: by 10.55.21.224 with SMTP id 93mr29429586qkv.89.1430576096394;
+        Sat, 02 May 2015 07:14:56 -0700 (PDT)
+Return-Path: <spender@grsecurity.net>
+Received: from grsecurity.net (grsecurity.net. [50.251.85.49])
+        by mx.google.com with ESMTP id kh2si7797905qcb.6.2015.05.02.07.14.56
+        for <zero@asac.co>;
+        Sat, 02 May 2015 07:14:56 -0700 (PDT)
+Received-SPF: pass (google.com: domain of spender@grsecurity.net designates 50.251.85.49 as permitted sender) client-ip=50.251.85.49;
+Authentication-Results: mx.google.com;
+       spf=pass (google.com: domain of spender@grsecurity.net designates 50.251.85.49 as permitted sender) smtp.mail=spender@grsecurity.net
+Received: by grsecurity.net (Postfix, from userid 1000)
+	id 6A80EAEF81; Sat,  2 May 2015 10:14:55 -0400 (EDT)
+Date: Sat, 2 May 2015 10:14:55 -0400
+From: Brad Spengler <spender@grsecurity.net>
+To: PIN <zero@asac.co>
+Subject: Re: ASLR
+Message-ID: <20150502141455.GA20107@grsecurity.net>
+References: <20150502022123.GA1997@grsecurity.net>
+ <CABN49-bNqqUteHkAL_KAfDtNEvhwnBG6-cCM4TaU_jannZk8TA@mail.gmail.com>
+ <20150502123104.GA16968@grsecurity.net>
+ <CABN49-awXbL1bkqpZpBy-rtpYEj+1PEnVwnohePvs75F2gYu=g@mail.gmail.com>
+ <20150502130149.GA17876@grsecurity.net>
+ <CABN49-bqSJ=3=itFVedsr_yHT-rQRoF=NLoq=SRtLtUTP6RcNw@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="3V7upXqbjpZ4EhLz"
+Content-Disposition: inline
+In-Reply-To: <CABN49-bqSJ=3=itFVedsr_yHT-rQRoF=NLoq=SRtLtUTP6RcNw@mail.gmail.com>
+User-Agent: Mutt/1.5.21 (2010-09-15)
+
+
+--3V7upXqbjpZ4EhLz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+But you know malloc can use mmap right?  If the allocations are of sizes above
+a configurable threshold, it will use mmap instead of brk.
+
+-Brad
+
+On Sat, May 02, 2015 at 09:21:45AM -0400, PIN wrote:
+> Ah I see what you're saying and that matches what I'm seeing. I'm not
+> expecting individual mallocs to return randomized pointers, I'm expecting
+> two successive mmaps to return pointers that are random to one another and
+> relative to everything else in the address space.
+
+--3V7upXqbjpZ4EhLz
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: Digital signature
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.12 (GNU/Linux)
+
+iQIcBAEBCgAGBQJVRNvXAAoJEETRwPglJf5Jd6IP/2m/NngKv6tfrZjeToKO3c5M
+yh9zRJaS/r5ca/8Yhx1ri/9Zk0S8TEmG1d9E2KlYpSUqrc19BEFURU+XPUhvH1kd
+TYVLT28aG/rYc8vBhgmkeeIaiOQAQ6N8hwkuvWe4ZDoqp280CYqjga9pi+TBH2rp
+sQ2NVV6shzshsMdjuWa+hINYqVyWR6PAqnKMC3529UQl0hRPDVI3N3eYv/ft+xPZ
+mLskHeh5H87wTBoVtbUZYbiggipk/qQxKpL6cb6IYMG0HRQiUicf55ozQBANvdTL
+ywXLtrZKWUIO0dXPbpqEnv3RYuNOcQIvTR7yfii9Z06PjkBNiTJqVrltfUMT8FOb
+vj8YNsTEGMwDdOXMdp4EdUm+Qp0zhnwInIGoSXqHLs2mPAzXacXslhmTLu0FVz2P
+XgWsSqp5qX3uKu0vI4l85KmsHrZn1jX+IR+DOSTEOZfHv2frqDC6SuMo5Bj9btcY
+eJqb4rDv8mehyzPAOwoJZvMpeXjAuYNZ09PSQwQbGuyyyw7vTLJYnr0RldCZAFl0
+fyxfiJp676a+ZtevH315QVZh28XeeLRFEJ4t5CJ6+E9+/o1QEi5kMECkPrNZFEaD
+N5W3h0Vw9VpoS9xsKxNqF5AQwURtlwsIB2GCNkuTOfxmIJDzWqgDWkXN9hHq0Cna
+iAryWJVQ/G8QDoTBJTZq
+=84Vj
+-----END PGP SIGNATURE-----
+
+--3V7upXqbjpZ4EhLz--
+
+                                                                                                                                                                                                                                                               
+MIME-Version: 1.0
+Received: by 10.140.69.178 with HTTP; Sat, 2 May 2015 07:26:37 -0700 (PDT)
+X-Originating-IP: [172.56.2.116]
+Received: by 10.140.69.178 with HTTP; Sat, 2 May 2015 07:26:37 -0700 (PDT)
+In-Reply-To: <20150502141455.GA20107@grsecurity.net>
+References: <20150502022123.GA1997@grsecurity.net>
+	<CABN49-bNqqUteHkAL_KAfDtNEvhwnBG6-cCM4TaU_jannZk8TA@mail.gmail.com>
+	<20150502123104.GA16968@grsecurity.net>
+	<CABN49-awXbL1bkqpZpBy-rtpYEj+1PEnVwnohePvs75F2gYu=g@mail.gmail.com>
+	<20150502130149.GA17876@grsecurity.net>
+	<CABN49-bqSJ=3=itFVedsr_yHT-rQRoF=NLoq=SRtLtUTP6RcNw@mail.gmail.com>
+	<20150502141455.GA20107@grsecurity.net>
+Date: Sat, 2 May 2015 10:26:37 -0400
+Delivered-To: zero@asac.co
+Message-ID: <CABN49-a35oiiPmoi7E9YOXWP+X4ZLzgfQeTeOSmpX1t4Zk4L7Q@mail.gmail.com>
+Subject: Re: ASLR
+From: PIN <zero@asac.co>
+To: Brad Spengler <spender@grsecurity.net>
+Content-Type: multipart/alternative; boundary=14dae94ed6f1d1104105151a1da9
+
+--14dae94ed6f1d1104105151a1da9
+Content-Type: text/plain; charset=UTF-8
+
+Which is my point; that malloc can return mmap'd memory and that the
+mappings it returns are not random relative to one another, or at least not
+random relative to the library loads, which I'm just assuming are serviced
+by mmap.
+
+I guess an additional point is that you don't necessarily need a leak, just
+the right execution context post corruption, which admittedly are rare, but
+then you can bypass ASLR blindly based on scavenged pointers. I think the
+bigger issue here is getting the right set of arithmetic operations
+performed on the pointer; it's probably easier in scripting languages
+exported to an attacker though.
+ On May 2, 2015 10:14 AM, "Brad Spengler" <spender@grsecurity.net> wrote:
+
+> But you know malloc can use mmap right?  If the allocations are of sizes
+> above
+> a configurable threshold, it will use mmap instead of brk.
+>
+> -Brad
+>
+> On Sat, May 02, 2015 at 09:21:45AM -0400, PIN wrote:
+> > Ah I see what you're saying and that matches what I'm seeing. I'm not
+> > expecting individual mallocs to return randomized pointers, I'm expecting
+> > two successive mmaps to return pointers that are random to one another
+> and
+> > relative to everything else in the address space.
+>
+
+--14dae94ed6f1d1104105151a1da9
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<p dir=3D"ltr">Which is my point; that malloc can return mmap&#39;d memory =
+and that the mappings it returns are not random relative to one another, or=
+ at least not random relative to the library loads, which I&#39;m just assu=
+ming are serviced by mmap.</p>
+<p dir=3D"ltr">I guess an additional point is that you don&#39;t necessaril=
+y need a leak, just the right execution context post corruption, which admi=
+ttedly are rare, but then you can bypass ASLR blindly based on scavenged po=
+inters. I think the bigger issue here is getting the right set of arithmeti=
+c operations performed on the pointer; it&#39;s probably easier in scriptin=
+g languages exported to an attacker though.<br>
+</p>
+<div class=3D"gmail_quote">On May 2, 2015 10:14 AM, &quot;Brad Spengler&quo=
+t; &lt;<a href=3D"mailto:spender@grsecurity.net">spender@grsecurity.net</a>=
+&gt; wrote:<br type=3D"attribution"><blockquote class=3D"gmail_quote" style=
+=3D"margin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">But you =
+know malloc can use mmap right?=C2=A0 If the allocations are of sizes above=
+<br>
+a configurable threshold, it will use mmap instead of brk.<br>
+<br>
+-Brad<br>
+<br>
+On Sat, May 02, 2015 at 09:21:45AM -0400, PIN wrote:<br>
+&gt; Ah I see what you&#39;re saying and that matches what I&#39;m seeing. =
+I&#39;m not<br>
+&gt; expecting individual mallocs to return randomized pointers, I&#39;m ex=
+pecting<br>
+&gt; two successive mmaps to return pointers that are random to one another=
+ and<br>
+&gt; relative to everything else in the address space.<br>
+</blockquote></div>
+
+--14dae94ed6f1d1104105151a1da9--
