@@ -13,3 +13,6 @@ The fix should be:
 - Introduce more entropy into the allocator; specifically see how OpenBSD uses arc4 to do this.
 - Randomize module load order
 - Remove the mmap base bias that puts mappings at predictable locations within the address space
+
+
+The raw directory contains a series of outputs of /proc/$pid/map for a bunch of vsftp processes (service restarted each time) that demonstrates that the SPACE BETWEEN MODULES IS NOT RANDOMIZED; meaning any individual leak can compromise the entire address space. As noted above, there should be instances where this can be leveraged blindly, for instance on the version of python on my linux box, running the following: print(hex((id("__main__") & ~4095) - 0xb4f000)) yields the base address of libc's text segment. In other contexts, if you can leak the right vptr's and then reuse instructions that emulate the page size bitwise and and the subtraction (or addition), then you could then use the pointer to start ROP/etc chains without knowing/leaking the address in question.
