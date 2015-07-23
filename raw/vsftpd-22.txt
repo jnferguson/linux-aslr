@@ -1,0 +1,50 @@
+7ffa4d19e000-7ffa4d1a2000 r-xp 00000000 103:80000 265116                 /lib64/libattr.so.1.1.0
+7ffa4d1a2000-7ffa4d3a1000 ---p 00004000 103:80000 265116                 /lib64/libattr.so.1.1.0
+7ffa4d3a1000-7ffa4d3a2000 r--p 00003000 103:80000 265116                 /lib64/libattr.so.1.1.0
+7ffa4d3a2000-7ffa4d3a3000 rw-p 00004000 103:80000 265116                 /lib64/libattr.so.1.1.0
+7ffa4d3a3000-7ffa4d537000 r-xp 00000000 103:80000 260196                 /lib64/libc-2.20.so
+7ffa4d537000-7ffa4d736000 ---p 00194000 103:80000 260196                 /lib64/libc-2.20.so
+7ffa4d736000-7ffa4d73a000 r--p 00193000 103:80000 260196                 /lib64/libc-2.20.so
+7ffa4d73a000-7ffa4d73c000 rw-p 00197000 103:80000 260196                 /lib64/libc-2.20.so
+7ffa4d73c000-7ffa4d740000 rw-p 00000000 00:00 0 
+7ffa4d740000-7ffa4d744000 r-xp 00000000 103:80000 264992                 /lib64/libcap.so.2.22
+7ffa4d744000-7ffa4d944000 ---p 00004000 103:80000 264992                 /lib64/libcap.so.2.22
+7ffa4d944000-7ffa4d945000 r--p 00004000 103:80000 264992                 /lib64/libcap.so.2.22
+7ffa4d945000-7ffa4d946000 rw-p 00005000 103:80000 264992                 /lib64/libcap.so.2.22
+7ffa4d946000-7ffa4d948000 r-xp 00000000 103:80000 260216                 /lib64/libutil-2.20.so
+7ffa4d948000-7ffa4db47000 ---p 00002000 103:80000 260216                 /lib64/libutil-2.20.so
+7ffa4db47000-7ffa4db48000 r--p 00001000 103:80000 260216                 /lib64/libutil-2.20.so
+7ffa4db48000-7ffa4db49000 rw-p 00002000 103:80000 260216                 /lib64/libutil-2.20.so
+7ffa4db49000-7ffa4db5c000 r-xp 00000000 103:80000 260221                 /lib64/libresolv-2.20.so
+7ffa4db5c000-7ffa4dd5c000 ---p 00013000 103:80000 260221                 /lib64/libresolv-2.20.so
+7ffa4dd5c000-7ffa4dd5d000 r--p 00013000 103:80000 260221                 /lib64/libresolv-2.20.so
+7ffa4dd5d000-7ffa4dd5e000 rw-p 00014000 103:80000 260221                 /lib64/libresolv-2.20.so
+7ffa4dd5e000-7ffa4dd60000 rw-p 00000000 00:00 0 
+7ffa4dd60000-7ffa4dd75000 r-xp 00000000 103:80000 260200                 /lib64/libnsl-2.20.so
+7ffa4dd75000-7ffa4df74000 ---p 00015000 103:80000 260200                 /lib64/libnsl-2.20.so
+7ffa4df74000-7ffa4df75000 r--p 00014000 103:80000 260200                 /lib64/libnsl-2.20.so
+7ffa4df75000-7ffa4df76000 rw-p 00015000 103:80000 260200                 /lib64/libnsl-2.20.so
+7ffa4df76000-7ffa4df78000 rw-p 00000000 00:00 0 
+7ffa4df78000-7ffa4df7a000 r-xp 00000000 103:80000 260184                 /lib64/libdl-2.20.so
+7ffa4df7a000-7ffa4e17a000 ---p 00002000 103:80000 260184                 /lib64/libdl-2.20.so
+7ffa4e17a000-7ffa4e17b000 r--p 00002000 103:80000 260184                 /lib64/libdl-2.20.so
+7ffa4e17b000-7ffa4e17c000 rw-p 00003000 103:80000 260184                 /lib64/libdl-2.20.so
+7ffa4e17c000-7ffa4e189000 r-xp 00000000 103:80000 265118                 /lib64/libpam.so.0.83.1
+7ffa4e189000-7ffa4e388000 ---p 0000d000 103:80000 265118                 /lib64/libpam.so.0.83.1
+7ffa4e388000-7ffa4e389000 r--p 0000c000 103:80000 265118                 /lib64/libpam.so.0.83.1
+7ffa4e389000-7ffa4e38a000 rw-p 0000d000 103:80000 265118                 /lib64/libpam.so.0.83.1
+7ffa4e38a000-7ffa4e3ac000 r-xp 00000000 103:80000 260180                 /lib64/ld-2.20.so
+7ffa4e590000-7ffa4e595000 rw-p 00000000 00:00 0 
+7ffa4e5aa000-7ffa4e5ab000 rw-p 00000000 00:00 0 
+7ffa4e5ab000-7ffa4e5ac000 r--p 00021000 103:80000 260180                 /lib64/ld-2.20.so
+7ffa4e5ac000-7ffa4e5ad000 rw-p 00022000 103:80000 260180                 /lib64/ld-2.20.so
+7ffa4e5ad000-7ffa4e5ae000 rw-p 00000000 00:00 0 
+7ffa4e5ae000-7ffa4e5d0000 r-xp 00000000 103:20000 540658                 /usr/sbin/vsftpd
+7ffa4e7cf000-7ffa4e7d0000 r--p 00021000 103:20000 540658                 /usr/sbin/vsftpd
+7ffa4e7d0000-7ffa4e7d1000 rw-p 00022000 103:20000 540658                 /usr/sbin/vsftpd
+7ffa4e7d1000-7ffa4e7d3000 rw-p 00000000 00:00 0 
+7ffa4f317000-7ffa4f338000 rw-p 00000000 00:00 0                          [heap]
+7fff66d1c000-7fff66d3d000 rw-p 00000000 00:00 0                          [stack]
+7fff66dd8000-7fff66dda000 r--p 00000000 00:00 0                          [vvar]
+7fff66dda000-7fff66ddc000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
